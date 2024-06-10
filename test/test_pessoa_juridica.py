@@ -1,6 +1,6 @@
 import sqlite3
 import pytest
-from Bank.pessoa_juridica import PessoaJuridica
+from Operacoes_class.pessoa_juridica import PessoaJuridica
 
 
 def consultar_numero_conta(cnpj):

@@ -1,6 +1,6 @@
 import pytest
-from Bank.conta import Conta
-from Bank.extrato import Extrato
+from Operacoes_class.conta import Conta
+from Operacoes_class.extrato import Extrato
 
 @pytest.fixture
 def conta_existente():

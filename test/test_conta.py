@@ -1,6 +1,6 @@
 import pytest
 from datetime import datetime, timezone, timedelta
-from Bank.conta import Conta  
+from Operacoes_class.conta import Conta  
 
 class TestConta:
     def test_init_extrato_empty(self):

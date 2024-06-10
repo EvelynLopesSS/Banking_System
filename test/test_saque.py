@@ -1,7 +1,7 @@
 import pytest
 import sqlite3
-from Bank.saque import Saque
-from Bank.conta import Conta
+from Operacoes_class.saque import Saque
+from Operacoes_class.conta import Conta
 
 @pytest.fixture
 def conta_existente():

@@ -1,5 +1,5 @@
 import pytest
-from Bank.pessoa_fisica import PessoaFisica
+from Operacoes_class.pessoa_fisica import PessoaFisica
 import sqlite3
 
 
@@ -19,7 +19,7 @@ def consultar_numero_conta(cpf):
 
 @pytest.fixture
 def pessoa_fisica():
-    return PessoaFisica("Fulano de Tal", "72355678913")
+    return PessoaFisica("Fulano de Tal", "82355678913")
 
 def test_criar_pessoa_fisica(pessoa_fisica, capsys):
     pessoa_fisica.criar_pessoa_fisica("senha123", 1)
@@ -34,21 +34,21 @@ def test_criar_pessoa_fisica(pessoa_fisica, capsys):
     assert "Agência" in captured.out
 
 def test_logar_pessoa_fisica_sucesso(pessoa_fisica):
-    numero_conta_esperado = consultar_numero_conta("72355678913")
+    numero_conta_esperado = consultar_numero_conta("82355678913")
 
-    assert pessoa_fisica.logar_pessoa_fisica(1, numero_conta_esperado, "72355678913", "senha123") == True
+    assert pessoa_fisica.logar_pessoa_fisica(1, numero_conta_esperado, "82355678913", "senha123") == True
 def test_logar_pessoa_fisica_cpf_invalido(pessoa_fisica):
     numero_conta_esperado = consultar_numero_conta("72355678913")
-    assert pessoa_fisica.logar_pessoa_fisica(1, numero_conta_esperado, "72355678912", "senha123") == False
+    assert pessoa_fisica.logar_pessoa_fisica(1, numero_conta_esperado, "82355678912", "senha123") == False
 
 def test_logar_pessoa_fisica_agencia_invalida(pessoa_fisica):
     numero_conta_esperado = consultar_numero_conta("72355678913")
-    assert pessoa_fisica.logar_pessoa_fisica(2, numero_conta_esperado, "72355678913", "senha123") == False
+    assert pessoa_fisica.logar_pessoa_fisica(2, numero_conta_esperado, "82355678913", "senha123") == False
 
 def test_logar_pessoa_fisica_conta_invalida(pessoa_fisica):
-    assert pessoa_fisica.logar_pessoa_fisica(1, 2, "72355678913", "senha123") == False
+    assert pessoa_fisica.logar_pessoa_fisica(1, 2, "82355678913", "senha123") == False
 
 def test_logar_pessoa_fisica_senha_incorreta(pessoa_fisica):
-    numero_conta_esperado = consultar_numero_conta("72355678913")
+    numero_conta_esperado = consultar_numero_conta("82355678913")
 
-    assert pessoa_fisica.logar_pessoa_fisica(1, numero_conta_esperado, "72355678913", "senha_incorreta") == False
+    assert pessoa_fisica.logar_pessoa_fisica(1, numero_conta_esperado, "82355678913", "senha_incorreta") == False
